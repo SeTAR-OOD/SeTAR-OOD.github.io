@@ -97,7 +97,7 @@
             <span class="author-block"><a href="https://github.com/sustech-nlp" style="color:#008AD7;font-weight:normal;">SUSTech NLP Group</a>
           </div>
 
-          <div class="is-size-5">
+          <div class="is-size-5" style="color: red;">
             <b> NeurIPS 2024 </b>
           </div>
 
@@ -167,7 +167,13 @@
     <!-- Paper Model. -->
     <div class="columns is-centered has-text-centered">
       <div class="column is-six-fifths">
-        <h2 class="title is-3">Model</h2>
+        <h2 class="title is-3">Method</h2>
+
+        <img id="model" width="70%" src="images/model.png">
+        <h3 class="subtitle has-text-centered">
+          <p style="font-family:Times New Roman"><b>The overview of SeTAR</b></p>
+        </h3>
+
         <div class="content has-text-justified">
           <p>
             We proposed <b>SeTAR</b>, a simple yet effective out-of-distribution (OOD) detection method based on selective
@@ -176,18 +182,30 @@
           <p>
             SeTAR achieves its selective low-rank approximation by applying Singular Value Decomposition (SVD) to the model’s weight matrices. Using SVD, each weight matrix is decomposed into a set of singular values and corresponding vectors. <b>SeTAR selectively keeps only the principal singular components, which hold the most significant information, while discarding minor singular components</b>. This approach improves robustness by reducing sensitivity to noise in less impactful weight matrix elements.
           </p>
+        </div>
+
+        <div class="content has-text-justified">
           <p>
             The SeTAR framework incorporates a <b>top-to-bottom, image-to-text greedy search algorithm</b> to optimize the rank reduction across the weight matrices in the model. This search method identifies the most effective layers and ranks to approximate, ensuring a fine balance between computational efficiency and detection performance. By searching optimal low-rank configurations on In-Domain images, SeTAR achieves improved OOD detection without retraining the model.
           </p>
+        </div>
+
+        <img id="model" width="60%" src="images/greedy_search.png">
+        <h3 class="subtitle has-text-centered">
+          <p style="font-family:Times New Roman"><b>Greedy Search Algorithm</b></p>
+        </h3>
+
+        <div class="content has-text-justified">
           <p>
             Building on SeTAR, we introduce <b>SeTAR+FT</b>, which leverages fine-tuning by freezing the major components while selectively tuning the minor components of the weight matrices. This process allows SeTAR+FT to enhance performance in fine-tuning-based OOD detection tasks, achieving state-of-the-art results on multiple benchmarks.
           </p>
         </div>
 
-        <img id="model" width="70%" src="images/model.png">
+        <img id="model" width="80%" src="images/setar_ft.png">
         <h3 class="subtitle has-text-centered">
-          <p style="font-family:Times New Roman"><b>The overview of SeTAR</b></p>
+          <p style="font-family:Times New Roman"><b>SeTAR+FT: Finetuning Extension of SeTAR</b></p>
         </h3>
+
 
         <div class="content has-text-justified">
           <p>
@@ -315,14 +333,13 @@
 <section class="section" id="BibTeX">
   <div class="container is-max-desktop content">
     <h2 class="title">BibTeX</h2>
-    <pre><code>@misc{li2024setaroutofdistributiondetectionselective,
-      title={SeTAR: Out-of-Distribution Detection with Selective Low-Rank Approximation},
-      author={Yixia Li and Boya Xiong and Guanhua Chen and Yun Chen},
-      year={2024},
-      eprint={2406.12629},
-      archivePrefix={arXiv},
-      primaryClass={cs.CL},
-      url={https://arxiv.org/abs/2406.12629},
+    <pre><code>@inproceedings{
+  li2024setar,
+  title={Se{TAR}: Out-of-Distribution Detection with Selective Low-Rank Approximation},
+  author={Yixia Li and Boya Xiong and Guanhua Chen and Yun Chen},
+  booktitle={The Thirty-eighth Annual Conference on Neural Information Processing Systems},
+  year={2024},
+  url={https://openreview.net/forum?id=65UoJ0z7Kp}
 }
 </code></pre>
   </div>
